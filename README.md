@@ -1,5 +1,6 @@
 #Crowd_Surveillance_ML_TEAM2
-##Violence Detection using YOLOv8 and MediaPipe
+
+## Violence Detection using YOLOv8 and MediaPipe
 
 ## Overview
 This project implements a **violence detection system** using **YOLOv8** for object detection and **MediaPipe Pose** for human pose estimation. The script processes video input, detects persons, and analyzes their movements to identify potential violence.
