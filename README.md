@@ -168,7 +168,7 @@ python gender_classification.py --video path_to_video.mp4
 - Adding **real-time webcam support**.
 - Enhancing **age classification** alongside gender detection.
 
-- You can view the output of the trouble detection system [here](https://drive.google.com/file/d/1DLjH7s4jnJyDD6HjMb612t_FAQPQwXJ4/view?usp=drivesdk).
+- You can view the output of the Gender Classification  [here](https://drive.google.com/file/d/1DLjH7s4jnJyDD6HjMb612t_FAQPQwXJ4/view).
 
 - # Trouble Detection Surveillance System
 
@@ -217,7 +217,7 @@ pip install ultralytics opencv-python numpy scipy deep-sort-realtime
 - Integrate with cloud-based monitoring solutions.
 
 ## Trouble Detection Output
-You can view the output of the trouble detection system [here](https://drive.google.com/file/d/1DLjH7s4jnJyDD6HjMb612t_FAQPQwXJ4/view?usp=drivesdk).
+You can view the output of the trouble detection system [here](https://drive.google.com/file/d/1uwXRH4n5qbNTnope7Zjc1goXvi0nn_Z0/view).
 
 
 
