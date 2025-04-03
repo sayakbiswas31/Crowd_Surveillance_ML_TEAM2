@@ -48,6 +48,74 @@ Modify the `cap = cv2.VideoCapture('path_to_video.mp4')` line in the script to u
 - Improving classification accuracy with **custom-trained models**.
 - Implementing **real-time webcam detection**.
 
+- # Image Detection System
+
+## Overview
+This project implements an image detection system using a Convolutional Neural Network (CNN) built with TensorFlow/Keras. It processes images and classifies them into one of two categories using a trained deep learning model.
+
+## Features
+- Utilizes a pre-trained CNN model.
+- Performs image classification with real-time or batch processing.
+- Implements OpenCV for image handling.
+- Supports GPU acceleration with TensorFlow.
+
+## Project Structure
+```
+├── detectd.py        # Main script for image detection
+├── model.json        # Trained Keras model in JSON format
+├── README.md         # Project documentation
+```
+
+## Requirements
+Ensure you have the following dependencies installed:
+
+```bash
+pip install tensorflow opencv-python numpy
+```
+
+## How to Run
+1. **Download the repository:**
+   ```bash
+   git clone  https://github.com/sayakbiswas31/Crowd_Surveillance_ML_TEAM2.git
+   cd your-repo
+   ```
+
+2. **Ensure all dependencies are installed:**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+3. **Run the detection script:**
+   ```bash
+   python detectd.py --image <path_to_image>
+   ```
+   - Replace `<path_to_image>` with the actual image file you want to process.
+
+4. **View the output:**
+   - The script will print the classification result in the terminal.
+   - It may also display the processed image with bounding boxes (if applicable).
+
+## Model Details
+The CNN model consists of:
+- Input layer for 250x250 RGB images.
+- Multiple convolutional layers with ReLU activation.
+- Max-pooling layers for feature extraction.
+- Dense layers for classification.
+- Softmax activation for binary classification.
+
+The model is compiled with:
+```python
+model.compile(loss='sparse_categorical_crossentropy', metrics=['accuracy'])
+```
+
+## Contributions
+Feel free to submit pull requests for improvements.
+
+## License
+This project is open-source under the MIT License.
+
+
+
 - # Gender Classification using Vision Transformer (ViT) and YOLOv8
 
 ## Overview
