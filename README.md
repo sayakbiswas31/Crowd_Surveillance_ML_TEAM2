@@ -100,6 +100,57 @@ python gender_classification.py --video path_to_video.mp4
 - Adding **real-time webcam support**.
 - Enhancing **age classification** alongside gender detection.
 
+- # Trouble Detection Surveillance System
+
+## Overview
+This project implements a real-time trouble detection surveillance system using computer vision. It leverages **YOLOv8** for object detection and **DeepSORT** for multi-object tracking, allowing it to monitor and analyze crowd behavior in a given environment.
+
+## Features
+- **Person Detection**: Uses YOLOv8 to detect people in real-time.
+- **Multi-Object Tracking**: Tracks individuals across frames using DeepSORT.
+- **Proximity Analysis**: Measures distances between detected persons to identify potential trouble situations.
+- **Live Video Processing**: Works with both live webcam feeds and pre-recorded video footage.
+
+## Installation
+### Requirements
+Ensure you have Python installed. Then, install the required dependencies:
+```bash
+pip install ultralytics opencv-python numpy scipy deep-sort-realtime
+```
+
+## Usage
+1. **Run the script:**
+   ```bash
+   python troubledetection_surveillance.py
+   ```
+2. **Provide a video source:**
+   - Modify the script to use a webcam (`cv2.VideoCapture(0)`) or a video file (`cv2.VideoCapture('path/to/video.mp4')`).
+3. **Analyze output:**
+   - The script will detect and track individuals, highlighting their movements and possible trouble zones.
+
+## How It Works
+1. **YOLOv8 Person Detection:**
+   - The YOLOv8 model (`yolov8x.pt`) detects people in each video frame.
+2. **DeepSORT Multi-Object Tracking:**
+   - Assigns unique IDs to each detected person, maintaining identity across frames.
+3. **Proximity Analysis:**
+   - Uses Euclidean distance to measure how close individuals are to each other.
+   - Identifies potentially dangerous situations (e.g., fights, overcrowding).
+
+## Customization
+- Modify the `max_age` and `n_init` parameters in the `DeepSort` tracker to fine-tune tracking sensitivity.
+- Adjust the detection confidence threshold in YOLO to reduce false positives.
+
+## Future Enhancements
+- Add action recognition models to detect specific types of trouble (e.g., violence detection).
+- Implement alert systems to notify security personnel in real-time.
+- Integrate with cloud-based monitoring solutions.
+
+## Trouble Detection Output
+You can view the output of the trouble detection system [here](https://drive.google.com/file/d/1DLjH7s4jnJyDD6HjMb612t_FAQPQwXJ4/view?usp=drivesdk).
+
+
+
 ## License
 This project is open-source under the **MIT License**.
 
