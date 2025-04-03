@@ -111,9 +111,6 @@ model.compile(loss='sparse_categorical_crossentropy', metrics=['accuracy'])
 ## Contributions
 Feel free to submit pull requests for improvements.
 
-## License
-This project is open-source under the MIT License.
-
 
 
 - # Gender Classification using Vision Transformer (ViT) and YOLOv8
