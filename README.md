@@ -21,7 +21,7 @@ pip install opencv-python torch mediapipe ultralytics
 
 ### Clone Repository
 ```sh
-git clone https://github.com/yourusername/violence-detection.git
+git clone https://github.com/sayakbiswas31/Crowd_Surveillance_ML_TEAM2.git
 cd violence-detection
 ```
 
@@ -73,7 +73,7 @@ pip install transformers torch torchvision pillow opencv-python ultralytics
 
 ### Clone Repository
 ```sh
-git clone https://github.com/yourusername/gender-classification.git
+git clone https://github.com/sayakbiswas31/Crowd_Surveillance_ML_TEAM2.git
 cd gender-classification
 ```
 
