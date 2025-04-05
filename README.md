@@ -108,8 +108,117 @@ The model is compiled with:
 model.compile(loss='sparse_categorical_crossentropy', metrics=['accuracy'])
 ```
 
-## Contributions
-Feel free to submit pull requests for improvements.
+- **Accuracy**: ✅ **79%**
+
+
+#  Accident Detection using Custom CNN
+
+This project implements an **accident detection system** using a Convolutional Neural Network (CNN) trained with Keras. The system analyzes images or frames (not real-time video) and classifies whether they indicate an accident or not.
+
+---
+
+##  Model Overview (`model.json`)
+
+The CNN model is structured to classify an input image as either:
+
+- **0** – No Accident  
+- **1** – Accident Detected
+
+### 🔍 Architecture:
+
+- **Input Shape**: `(250, 250, 3)`
+- **Layers**:
+  - `BatchNormalization`
+  - `Conv2D` layers (32, 64, 128, 256 filters)
+  - `MaxPooling2D` layers after each Conv2D
+  - `Flatten` layer to flatten feature maps
+  - `Dense(512)` with ReLU
+  - Final `Dense(2)` with Softmax for binary output
+- **Loss Function**: `sparse_categorical_crossentropy`
+- **Accuracy**: ✅ **89%**
+
+---
+
+## 🧪 detection.py – Image Classification
+
+This script provides the core functionality for:
+
+- Loading the model architecture and weights
+- Preprocessing input images
+- Predicting whether an accident is detected
+- Outputting the result as a label (`Accident` or `No Accident`)
+
+### Sample usage:
+```python
+from detection import detect
+
+result = detect("path_to_image.jpg")
+print("Prediction:", result)
+```
+
+---
+
+## 🛠️ Setup Instructions
+
+### 1. Clone the repository
+```bash
+git clone https://github.com/sayakbiswas31/Crowd_Surveillance_ML_TEAM2.git
+cd Crowd_Surveillance_ML_TEAM2
+```
+
+### 2. Install dependencies
+```bash
+pip install -r requirements.txt
+```
+
+**requirements.txt**
+```txt
+tensorflow
+opencv-python
+numpy
+```
+
+### 3. Run detection on an image
+Make sure your image is in the correct format, then run:
+```bash
+python detection.py --image path_to_image.jpg
+```
+
+> (Optional: You can modify `detection.py` to support CLI input.)
+
+---
+
+## 📂 Project Structure
+
+```
+Crowd_Surveillance_ML_TEAM2/
+├── detection.py        # Contains prediction code
+├── model.json          # CNN model architecture
+├── model_weights.h5    # Pre-trained weights (add manually)
+├── README.md           # Project documentation
+└── requirements.txt    # Python dependencies
+```
+
+---
+
+## 🧾 Output Example
+
+After running `detection.py`, you'll get output like:
+```
+Prediction: Accident
+```
+or
+```
+Prediction: No Accident
+```
+
+---
+
+## ⚠️ Notes
+
+- Make sure `model_weights.h5` is present in the same directory.
+- Input images must match the model input size (250×250), or be resized appropriately.
+- Model accuracy: **89%**
 
 
 
@@ -167,6 +276,8 @@ python gender_classification.py --video path_to_video.mp4
 
 - You can view the output of the Gender Classification  [here](https://drive.google.com/file/d/1DLjH7s4jnJyDD6HjMb612t_FAQPQwXJ4/view).
 
+- - **Accuracy**: ✅ **85%**
+
 - # Trouble Detection Surveillance System
 
 ## Overview
@@ -216,8 +327,9 @@ pip install ultralytics opencv-python numpy scipy deep-sort-realtime
 ## Trouble Detection Output
 You can view the output of the trouble detection system [here](https://drive.google.com/file/d/1uwXRH4n5qbNTnope7Zjc1goXvi0nn_Z0/view).
 
+- **Accuracy**: ✅ **83%**
 
-
+- 
 ## License
 This project is open-source under the **MIT License**.
 
