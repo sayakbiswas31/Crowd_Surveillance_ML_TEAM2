@@ -337,7 +337,7 @@ This project is open-source under the **MIT License**.
 Feel free to contribute by submitting **issues** or **pull requests**!
 
 
-## Chain Snatching Detection System
+- # Chain Snatching Detection System
 
 ## Overview
 This project implements a real-time chain snatching detection system using deep learning. It leverages a CNN-LSTM architecture to identify suspicious events.
@@ -365,3 +365,111 @@ This project implements a real-time chain snatching detection system using deep 
 
 ## License
 - Open-source under the MIT License.
+
+
+
+
+- # Body Classification using YOLOv5 and ResNet18
+## Overview
+This project implements a body-based gender classification system using YOLOv5 for person detection and ResNet18 for gender classification. It processes videos, extracts human figures, and classifies them as male or female based on full-body appearance.
+
+## Features
+Detects persons in videos using YOLOv5.
+
+Extracts and preprocesses body crops from video frames.
+
+Trains a ResNet18 CNN to classify gender (male/female).
+
+Supports real-time gender classification in video streams.
+
+Annotates frames with bounding boxes and gender labels.
+
+## Installation
+## Requirements
+Install the required dependencies:
+
+pip install torch torchvision albumentations opencv-python numpy pillow matplotlib rembg
+## Dataset and Preprocessing
+Step 1: Split Dataset
+Organize your dataset into two folders: male/ and female/. Then split into training and validation sets.
+split_dataset('/content/drive/MyDrive/dataset', '/content/drive/MyDrive/dataset_split', train_ratio=0.8)
+
+Step 2: Extract Frames from Videos
+Extract frames from each video to use for person detection:
+extract_frames_from_videos(video_dir, output_dir, frame_skip=10)
+
+Step 3: Crop Persons from Frames
+Use YOLOv5 to detect and crop person bounding boxes from frames:
+crop_person_from_images(input_dir, output_dir)
+Repeat the process for both train and val splits for each class (male, female).
+
+## Model Training
+## Model
+Architecture: ResNet18 (pretrained on ImageNet)
+
+## Input Size: 224x224
+
+## Output Classes: Male, Female
+
+## Training Code
+
+model = models.resnet18(pretrained=True)
+model.fc = nn.Linear(model.fc.in_features, 2)
+Use standard data augmentation and normalization:
+
+transform = transforms.Compose([
+    transforms.Resize((224, 224)),
+    transforms.ToTensor(),
+    transforms.Normalize([0.485, 0.456, 0.406],
+                         [0.229, 0.224, 0.225])
+])
+## Train the model for 10 epochs:
+
+for epoch in range(10):
+    model.train()
+    ...
+    print(f"Epoch {epoch+1}, Loss: {running_loss}")
+## Save the trained model:
+
+torch.save(model.state_dict(), '/content/model.pth')
+## Inference on Video
+## Process
+Load YOLOv5 to detect persons in each frame.
+Crop persons and classify gender with ResNet18.
+Annotate the video with predictions.
+
+## Sample Code
+
+# Detect persons
+results = yolo_model(temp_img_path)
+persons = results.pandas().xyxy[0][results.pandas().xyxy[0]['name'] == 'person']
+
+# Crop and classify each person
+for index, row in persons.iterrows():
+    crop = frame[y1:y2, x1:x2]
+    ...
+    output = model(input_tensor)
+    label = class_names[pred.item()]
+    ...
+## Output
+Annotated video frames with bounding boxes.
+
+Gender labels printed per frame:
+
+Frame 5: ['male', 'female', 'male']
+## Usage
+Running the Pipeline
+python body_gender_classification.py
+
+## Modify the script to point to your video:
+cap = cv2.VideoCapture('/content/drive/MyDrive/crowd.mp4')
+
+## Future Improvements
+Integrate DeepSORT for person tracking across frames.
+Add pose estimation to support more nuanced body analysis.
+Train with larger and more diverse datasets.
+Extend to age group or attire classification.
+
+## Acknowledgments
+Ultralytics YOLOv5
+TorchVision Models
