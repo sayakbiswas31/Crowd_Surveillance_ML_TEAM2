@@ -369,7 +369,7 @@ This project implements a real-time chain snatching detection system using deep 
 
 
 
-- # Body Classification using YOLOv5 and ResNet18
+- # Body Classification 
 ## Overview
 This project implements a body-based gender classification system using YOLOv5 for person detection and ResNet18 for gender classification. It processes videos, extracts human figures, and classifies them as male or female based on full-body appearance.
 
