@@ -336,3 +336,32 @@ This project is open-source under the **MIT License**.
 
 Feel free to contribute by submitting **issues** or **pull requests**!
 
+
+## Chain Snatching Detection System
+
+## Overview
+This project implements a real-time chain snatching detection system using deep learning. It leverages a CNN-LSTM architecture to identify suspicious events.
+
+## Features
+- CNN + LSTM Detection: Uses MobileNetV2 and LSTM to detect actions over time.
+- Sequence-Based Analysis: Processes 16-frame sequences.
+- Real-Time Video Inference: Supports live and pre-recorded videos.
+- Visual and Console Alerts: Displays alerts on screen and prints in terminal.
+
+## Installation
+- Install required Python libraries: pip install torch torchvision opencv-python
+
+## Usage
+1. Update file paths: Modify video path and model path.
+2. Run the script: python chain_snatching_detection.py
+
+## How It Works
+1. CNN Feature Extraction: Extracts visual features using MobileNetV2.
+2. LSTM Temporal Modeling: Analyzes sequences of frames.
+3. Binary Classification: Predicts chain snatching events.
+
+## Accuracy
+- 81.43%
+
+## License
+- Open-source under the MIT License.
